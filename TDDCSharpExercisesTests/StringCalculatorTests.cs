@@ -37,5 +37,26 @@ namespace TDDCSharpExercisesTests
             Assert.AreEqual(3, StringCalculator.Run("1,1,1"));
             Assert.AreEqual(10, StringCalculator.Run("1,2,3,4"));
         }
+
+        [TestMethod]
+        public void ReturnsSumWithNewlineDelimiters()
+        {
+            Assert.AreEqual(3, StringCalculator.Run("1\n1\n1"));
+            Assert.AreEqual(6, StringCalculator.Run("1\n2,3"));
+        }
+
+        [TestMethod]
+        public void ThrowsExceptionOnDelimiterAtEnd()
+        {
+            Assert.ThrowsException<StringCalculator.SeparatorAtEndException>(() => StringCalculator.Run("1,1,1,"));
+        }
+
+        [TestMethod]
+        public void UseCustomDelimiters()
+        {
+            Assert.AreEqual(6, StringCalculator.Run("//e1e2e3"));
+            Assert.AreEqual(0, StringCalculator.Run("//e"));
+            Assert.AreEqual(1, StringCalculator.Run("//e1"));
+        }
     }
 }
