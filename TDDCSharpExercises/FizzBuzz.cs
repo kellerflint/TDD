@@ -20,16 +20,8 @@ namespace TDDCSharpExercises
         public static IList<string> FizzBuzzLeet(int n)
         {
             var list = new List<string>();
-            for (var i = 1; i <= n; i++) list.Add(GetFizzBuzzValue(i));
+            for (var i = 1; i <= n; i++) list.Add(Run(i));
             return list;
-        }
-
-        private static string GetFizzBuzzValue(int i)
-        {
-            string output = "";
-            if (i % 3 == 0) output += "Fizz";
-            if (i % 5 == 0) output += "Buzz";
-            return output == "" ? i.ToString() : output;
         }
     }
 }
