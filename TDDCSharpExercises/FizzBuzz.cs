@@ -10,10 +10,10 @@ namespace TDDCSharpExercises
     {
         public static string Run(int number)
         {
-            if (number % 3 == 0 && number % 5 == 0) return "FizzBuzz";
-            if (number % 3 == 0) return "Fizz";
-            if (number % 5 == 0) return "Buzz";
-            return number.ToString();
+            string output = "";
+            if (number % 3 == 0) output += "Fizz";
+            if (number % 5 == 0) output += "Buzz";
+            return output == "" ? number.ToString() : output;
         }
     }
 }
